@@ -1,0 +1,8 @@
+/* .container {
+  background-image: url("https://t3.ftcdn.net/jpg/05/37/17/24/360_F_537172411_C4GmfD6cpU7mrra2CYzyYUL34w3Bk1mN.jpg");
+} */
+
+.app {
+  background-image: url("https://t3.ftcdn.net/jpg/05/37/17/24/360_F_537172411_C4GmfD6cpU7mrra2CYzyYUL34w3Bk1mN.jpg");
+  min-height: 100vh;
+}
