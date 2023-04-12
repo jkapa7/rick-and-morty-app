@@ -28,9 +28,7 @@ export const addFavorites = (ch) => {
 export const deleteFavorites = (id) => {
   return async function (dispatch) {
     try {
-      const character = await axios.delete(
-        `http://localhost:3001/rickandmorty/fav/${id}`
-      );
+      await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
       dispatch({
         type: DELETE_FAVORITES,
         payload: id,

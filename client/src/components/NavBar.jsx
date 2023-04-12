@@ -1,5 +1,4 @@
 import React from "react";
-import SearchBar from "./SearchBar";
 import styles from "../styles/NavBar.module.css";
 import { Link } from "react-router-dom";
 
@@ -16,10 +15,6 @@ const NavBar = (props) => {
         <Link to={"/about"}>
           <button>About</button>
         </Link>
-      </div>
-
-      <div>
-        <SearchBar onSearch={props.onSearch} />
       </div>
 
       <div>

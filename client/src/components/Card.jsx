@@ -25,7 +25,7 @@ export default function Card(props) {
         setIsFav(true);
       }
     });
-  }, [myFavorites]);
+  }, [myFavorites, props.id]);
 
   return (
     <div className={styles.card}>

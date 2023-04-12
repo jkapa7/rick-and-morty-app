@@ -51,7 +51,6 @@ const Form = (props) => {
               ></input>
               <p className={styles.danger}>{errors.username}</p>
             </div>
-            <br></br>
 
             <div className={styles.formGroup}>
               <label>Password:</label>
@@ -64,7 +63,6 @@ const Form = (props) => {
               <p className={styles.danger}>{errors.password}</p>
             </div>
 
-            <br></br>
             <div className={styles.fromButtonBox}>
               <button type="submit" className={styles.formButton}>
                 Log In
