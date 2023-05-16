@@ -1,0 +1,7 @@
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 8px;
+  /* border: #97ce4c solid 4px; */
+  border-radius: 8px;
+}

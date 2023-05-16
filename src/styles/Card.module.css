@@ -1,0 +1,27 @@
+.card {
+  padding: 4px;
+  border: #fffcf5e2 solid 2px;
+  border-radius: 6px;
+  margin: 8px;
+  background-color: #fffcf5e2;
+}
+
+.txt {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  /* display: flex;
+  display: flex;
+  display: flex;
+  display: flex; */
+
+  background-color: red;
+  border: solid black 1px;
+  color: #fffcf5;
+}
