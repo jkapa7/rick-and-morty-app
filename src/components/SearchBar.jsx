@@ -1,11 +1,35 @@
-import styles from "../styles/SearchBar.module.css";
 import { useState } from "react";
+import axios from "axios";
+import styles from "../styles/SearchBar.module.css";
 
-export default function SearchBar(props) {
-  const [character, setCharacter] = useState("");
+export function SearchBar() {
+  const [characters, setCharacters] = useState([]);
+  const [id, setId] = useState("");
+
+  const onSearch = async (id) => {
+    try {
+      const result = await axios(`/character/${id}`);
+      console.log(result.data);
+
+      const character = result.data.data;
+
+      if (character.name) {
+        let exist = characters.find((e) => e.id === character.id);
+        if (exist) {
+          alert("Ese personaje ya existe");
+        } else {
+          setCharacters((oldChars) => [...oldChars, character]);
+        }
+      } else {
+        window.alert("No hay personajes con ese ID");
+      }
+    } catch (error) {
+      console.log(1);
+    }
+  };
 
   function handleInput(event) {
-    setCharacter(event.target.value);
+    setId(event.target.value);
   }
 
   return (
@@ -15,10 +39,10 @@ export default function SearchBar(props) {
         name="search"
         placeholder="type id"
         onChange={(event) => handleInput(event)}
-        value={character}
+        value={id}
       />
 
-      <button onClick={() => props.onSearch(character)}>Search</button>
+      <button onClick={() => onSearch(parseInt(id))}>Search</button>
     </div>
   );
 }

@@ -1,12 +1,19 @@
 import Card from "./Card";
 import styles from "../styles/Cards.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCharacters } from "../redux/actions";
 
 export default function Cards(props) {
-  const { characters } = props;
+  const dispatch = useDispatch();
+  const allCharacters = useSelector((state) => state.allCharacters);
+
+  useEffect(() => {
+    dispatch(getAllCharacters());
+  }, [dispatch]);
 
   return (
     <div className={styles.cards}>
-      {characters.map((character) => {
+      {allCharacters.map((character) => {
         return (
           <Card
             key={character.id}

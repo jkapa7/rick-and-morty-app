@@ -4,15 +4,31 @@ import {
   FILTER,
   ORDER,
   RESET,
+  GET_ALL_CHARACTERS,
+  GET_DETAIL,
 } from "./action_type";
 
 const initialState = {
   myFavorites: [],
   myFavoritesOrigin: [],
+  allCharacters: [],
+  detail: [],
 };
 
-const rootReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_ALL_CHARACTERS:
+      return {
+        ...state,
+        allCharacters: action.payload,
+      };
+
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
     case ADD_FAVORITES:
       return {
         ...state,
