@@ -1,28 +1,11 @@
 import Layout from "../components/Layout";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllCharacters } from "../redux/actions";
+import Cards from "../components/Cards";
 
 const Home = () => {
-  const dispatch = useDispatch();
-
-  const allCharacters = useSelector((state) => state.allCharacters);
-
-  useEffect(() => {
-    dispatch(getAllCharacters());
-  }, [dispatch]);
-
-  console.log(allCharacters);
-
   return (
     <Layout>
-      {allCharacters.map((character) => {
-        return <button>1</button>;
-      })}
-
-      <button>HOLAAA</button>
-      <button>HOLAAA</button>
-      <button>HOLAAA</button>
+      <button>Characters</button>
+      <Cards />
     </Layout>
   );
 };

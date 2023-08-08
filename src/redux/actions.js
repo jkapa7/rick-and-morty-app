@@ -1,4 +1,4 @@
-import axios, { all } from "axios";
+import axios from "axios";
 import {
   ADD_FAVORITES,
   DELETE_FAVORITES,
@@ -16,6 +16,36 @@ export const addFavorites = (ch) => {
       dispatch({
         type: ADD_FAVORITES,
         payload: character.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const getAllCharacters = () => {
+  return async function (dispatch) {
+    try {
+      const allCharacters = await axios.get("/character");
+
+      dispatch({
+        type: GET_ALL_CHARACTERS,
+        payload: allCharacters.data.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    try {
+      const detail = await axios.get(`/character/${id}`);
+      console.log(detail.data.data);
+
+      dispatch({
+        type: GET_DETAIL,
+        payload: detail.data.data,
       });
     } catch (error) {
       console.log(error);
@@ -54,34 +84,5 @@ export const orderCards = (order) => {
 export const reset = () => {
   return {
     type: RESET,
-  };
-};
-
-export const getAllCharacters = () => {
-  return async function (dispatch) {
-    try {
-      const allCharacters = await axios.get("/character");
-
-      dispatch({
-        type: GET_ALL_CHARACTERS,
-        payload: allCharacters.data.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
-
-export const getDetail = (id) => {
-  return async function (dispatch) {
-    try {
-      const detail = axios.get(`/character/${id}`);
-      dispatch({
-        type: GET_DETAIL,
-        payload: detail.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
   };
 };

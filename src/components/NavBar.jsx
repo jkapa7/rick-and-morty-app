@@ -1,4 +1,3 @@
-import { SearchBar } from "./SearchBar";
 import styles from "../styles/NavBar.module.css";
 import { Link } from "react-router-dom";
 
@@ -7,19 +6,17 @@ const NavBar = () => {
     <div className={styles.nav}>
       <div>
         <Link to="/">
-          <button>Home</button>
+          <img src="/rick.svg" />
         </Link>
       </div>
 
       <div>
         <Link to="/">
-          <button>Home</button>
+          <a>Home</a>
         </Link>
-      </div>
 
-      <div>
         <Link to="/about">
-          <button>About</button>
+          <a>About</a>
         </Link>
       </div>
     </div>
